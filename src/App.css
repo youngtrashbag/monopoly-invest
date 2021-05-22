@@ -4,10 +4,16 @@
 
     text-align: center;
 
-    background-color: lightblue;
+    background-color: mintcream;
+    /* background-color: lightblue; */
     /* background-color: lightskyblue; */
     /* background-color: dodgerblue; */
     /* background-color: cornflowerblue; */
+}
+
+form {
+    width: 90%;
+    height: 100%;
 }
 
 .ConfigWrapper {

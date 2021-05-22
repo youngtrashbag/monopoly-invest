@@ -1,17 +1,11 @@
 import { useState } from "react";
+import { Formik, Form } from "formik";
 
-const PlayerColors = [
-    "#CC0000",
-    "#00CC00",
-    "#0000CC",
-    "#CC00CC",
-    "#CCCC00",
-]
+import { PlayerColors } from "./global";
 
 const ConfigView = () => {
     const [ getPlayerCount, setPlayerCount ] = useState(4);
     const [ getCurrencyCount, setCurrencyCount ] = useState(4);
-    const [ getRisk, setRisk ] = useState(2);
 
     const PlayerCount = () => {
         function changePlayerCount(event) {
@@ -31,13 +25,15 @@ const ConfigView = () => {
         );
     }
 
-    const PlayerNames = () => {
+    const PlayerNames = (props) => {
+        const { values, handleChange } = props;
+
         var inputs = [];
-        for (var i = 1; i <= getPlayerCount; i++) {
+        for (var i = 0; i < getPlayerCount; i++) {
             inputs.push(
                 <>
-                    <label style={{color: PlayerColors[i-1] }}>Player #{i}</label>
-                    <input key={i} name={`player${i}`} type="text"/>
+                    <label style={{color: PlayerColors[i] }}>Player #{i+1}</label>
+                    <input name={`playerNameInput${i+1}`} type="text" value={values.players[i]} onChange={handleChange}/>
                 </>
             );
         }
@@ -70,13 +66,16 @@ const ConfigView = () => {
         );
     }
 
-    const CurrencyNames = () => {
+    const CurrencyNames = (props) => {
+        const { values, handleChange } = props;
+
         var inputs = [];
-        for (var i = 1; i <= getCurrencyCount; i++) {
+        for (var i = 0; i < getCurrencyCount; i++) {
             inputs.push(
                 <>
-                    <label>Currency #{i}</label>
-                    <input key={i} type="text"/>
+                    <label>Currency #{i+1}</label>
+                    <input name={`currencyName${i+1}`} type="text" placeholder="Name" value={values.currencies[i].name} onChange={handleChange}/>
+                    <input name={`currencyValue${i+1}`} type="number" placeholder="Value" value={values.currencies[i].value} onChange={handleChange}/>
                 </>
             );
         }
@@ -89,9 +88,11 @@ const ConfigView = () => {
         );
     }
 
-    const RiskSelector = () => {
+    const RiskSelector = (props) => {
+        const { values } = props;
+
         function changeRisk(event) {
-            setRisk(event.target.value);
+            values.risk = event.target.value;
         }
 
         return (
@@ -107,33 +108,65 @@ const ConfigView = () => {
         );
     }
 
-    const onSubmit = () => {
-        // TODO: implement formik logic, and save this as window.sessionStorage values i think
-        console.log(`#Player: ${getPlayerCount}\n#Currencies: ${getCurrencyCount}\nRisk: ${getRisk}`);
+    const initialValues = {
+        players: [
+            "",
+            "",
+            "",
+            "",
+            "",
+        ],
+        currencies: [
+            {name: "", value: 0},
+            {name: "", value: 0},
+            {name: "", value: 0},
+            {name: "", value: 0},
+            {name: "", value: 0},
+            {name: "", value: 0},
+        ],
+        risk: 0,
     };
 
+    const handleSubmit = (data) => {
+        // TODO: implement formik logic, and save this as window.sessionStorage values i think
+        console.log(`#Player: ${getPlayerCount}\n#Currencies: ${getCurrencyCount}\nRisk: ${data.risk}`);
+    };
+
+
     return (
-        <div className="ConfigWrapper">
-            <div className="PlayerWrapper">
-                <div className="ListWrapper">
-                    <PlayerCount/>
-                    <PlayerNames/>
+            <Formik
+                enableReinitialize
+                initialValues={initialValues}
+                onSubmit={handleSubmit}
+            >
+            { (formik) => {
+                return(
+                <Form>
+                <div className="ConfigWrapper">
+                    <div className="PlayerWrapper">
+                        <div className="ListWrapper">
+                            <PlayerCount/>
+                            <PlayerNames values={formik.values} handleChange={formik.handleChange}/>
+                        </div>
+                    </div>
+                    <div className="CurrencyWrapper">
+                        <div className="ListWrapper">
+                            <CurrencyCount/>
+                            <CurrencyNames values={formik.values} handleChange={formik.handleChange}/>
+                        </div>
+                    </div>
+                    <div className="OtherWrapper">
+                        <h2>Other Values</h2>
+                        <div className="ListWrapper">
+                            <RiskSelector values={formik.values}/>
+                        </div>
+                    </div>
+                    <button id="submit" type="submit">Save and Continue!</button>
                 </div>
-            </div>
-            <div className="CurrencyWrapper">
-                <div className="ListWrapper">
-                    <CurrencyCount/>
-                    <CurrencyNames/>
-                </div>
-            </div>
-            <div className="OtherWrapper">
-                <h2>Other Values</h2>
-                <div className="ListWrapper">
-                    <RiskSelector/>
-                </div>
-            </div>
-        <button id="submit" onClick={onSubmit}>Save and Continue!</button>
-        </div>
+                </Form>
+                );
+            }}
+            </Formik>
     );
 }
 
