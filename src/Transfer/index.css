@@ -8,3 +8,8 @@
     align-self: center;
     align-items: center;
 }
+
+.TransactionWrapper {
+    display: flex;
+    flex-direction: row;
+}
