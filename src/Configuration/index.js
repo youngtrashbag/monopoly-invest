@@ -1,4 +1,3 @@
-import { useState } from "react";
 import {
     BrowserRouter as Router,
     Switch,
@@ -12,15 +11,15 @@ import CurrencyView from "./currencies";
 import MiscView from "./misc";
 
 const ConfigView = () => {
-    const { path, url } = useRouteMatch();
+    const { path } = useRouteMatch();
 
     return (
         <>
         <div className="ConfigWrapper">
             <Router>
-                <Link to={`${url}/players`}>Players</Link>
-                <Link to={`${url}/currencies`}>Currencies</Link>
-                <Link to={`${url}/misc`}>Misc</Link>
+                <Link to={`${path}/players`}>Players</Link>
+                <Link to={`${path}/currencies`}>Currencies</Link>
+                <Link to={`${path}/misc`}>Misc</Link>
                 <br/>
                 <Switch>
                     <Route exact path={`${path}/players`}>
