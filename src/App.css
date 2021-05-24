@@ -1,5 +1,6 @@
 .App {
     display: flex;
+    flex-direction: column;
     height: 100%;
 
     text-align: center;
@@ -9,4 +10,14 @@
     /* background-color: lightskyblue; */
     /* background-color: dodgerblue; */
     /* background-color: cornflowerblue; */
+}
+
+.HeaderMessage {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    top: 0;
+    width: 100%;
+    background-color: #CC4444;
 }

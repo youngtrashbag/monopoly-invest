@@ -30,7 +30,7 @@ const CurrencyView = () => {
         var currencies = getCurrencies;
 
         for (var i=0; i<currencies.length; i++) {
-            if (currencies[i].name == "") {
+            if (currencies[i].name === "") {
                 // remove this and all following elements
                 currencies.splice(i, currencies.length);
             }

@@ -26,7 +26,7 @@ const PlayerView = () => {
         var players = getPlayers;
 
         for (var i=0; i<players.length; i++) {
-            if (players[i] == "") {
+            if (players[i] === "") {
                 // remove this and all following elements
                 players.splice(i, players.length);
             }
