@@ -5,7 +5,7 @@ import {
 } from "react-router-dom";
 
 import './App.css';
-import ConfigView from "./ConfigView";
+import ConfigView from "./Configuration/index";
 
 function App() {
     return (

@@ -1,9 +1,19 @@
 import { useState } from "react";
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link,
+    useRouteMatch,
+} from "react-router-dom";
+
+import CurrencyView from "./currencies";
+
 import { Formik, Form } from "formik";
+import { PlayerColors } from "../global";
 
-import { PlayerColors } from "./global";
 
-const ConfigView = () => {
+const ConfigViewOld = () => {
     const [ getPlayerCount, setPlayerCount ] = useState(4);
     const [ getCurrencyCount, setCurrencyCount ] = useState(4);
 
@@ -46,47 +56,6 @@ const ConfigView = () => {
         );
     }
 
-    const CurrencyCount = () => {
-        function changeCurrencyCount(event) {
-            setCurrencyCount(event.target.value);
-        }
-
-        return (
-            <>
-                <h2># Currencies</h2>
-                <select onChange={changeCurrencyCount}>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
-                    <option value="4">Four</option>
-                    <option value="5">Five</option>
-                    <option value="6">Six</option>
-                </select>
-            </>
-        );
-    }
-
-    const CurrencyNames = (props) => {
-        const { values, handleChange } = props;
-
-        var inputs = [];
-        for (var i = 0; i < getCurrencyCount; i++) {
-            inputs.push(
-                <>
-                    <label>Currency #{i+1}</label>
-                    <input name={`currencyName${i+1}`} type="text" placeholder="Name" value={values.currencies[i].name} onChange={handleChange}/>
-                    <input name={`currencyValue${i+1}`} type="number" placeholder="Value" value={values.currencies[i].value} onChange={handleChange}/>
-                </>
-            );
-        }
-
-        return (
-            <>
-                <h2>Name Currencies</h2>
-                {inputs}
-            </>
-        );
-    }
 
     const RiskSelector = (props) => {
         const { values } = props;
@@ -151,8 +120,6 @@ const ConfigView = () => {
                     </div>
                     <div className="CurrencyWrapper">
                         <div className="ListWrapper">
-                            <CurrencyCount/>
-                            <CurrencyNames values={formik.values} handleChange={formik.handleChange}/>
                         </div>
                     </div>
                     <div className="OtherWrapper">
@@ -167,6 +134,34 @@ const ConfigView = () => {
                 );
             }}
             </Formik>
+    );
+}
+
+
+const ConfigView = () => {
+    const { path, url } = useRouteMatch();
+
+    return (
+        <>
+        <div className="ConfigWrapper">
+            <Link to={`${url}/players`}>Players</Link>
+            <Link to={`${url}/currencies`}>Currencies</Link>
+            <Link to={`${url}/misc`}>Misc</Link>
+            <Router>
+            <Switch>
+                <Route path={`${path}/players`}>
+
+                </Route>
+                <Route path={`${path}/currencies`}>
+                    <CurrencyView/>
+                </Route>
+                <Route path={`${path}/misc`}>
+
+                </Route>
+            </Switch>
+            </Router>
+        </div>
+        </>
     );
 }
 
