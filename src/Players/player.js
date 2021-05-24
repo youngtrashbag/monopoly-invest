@@ -38,12 +38,16 @@ const PlayerView = () => {
         </h1>
         <h3>Total Guthaben: ${totalFiatValue}</h3>
         <table>
-            <tr>
-                <th>Currency</th>
-                <th># Owned</th>
-                <th>Fiat Value</th>
-            </tr>
-            {currencyRows}
+            <thead>
+                <tr>
+                    <th>Currency</th>
+                    <th># Owned</th>
+                    <th>Fiat Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                {currencyRows}
+            </tbody>
         </table>
         </>
     )
