@@ -10,10 +10,22 @@
 }
 
 ul {
+    text-align: center;
     list-style: none;
     list-style-type: none;
 }
 ul > li > a {
     color: inherit;
     text-decoration: none;
+}
+
+table {
+    table-layout: fixed;
+    width: 50%;
+    border-collapse: collapse;
+    border: 3px solid black;
+}
+
+th, td {
+    border: 1px solid black;
 }
