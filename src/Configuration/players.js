@@ -5,11 +5,26 @@ import './index.css';
 
 const PlayerConfigView = () => {
     const players = [
-        "",
-        "",
-        "",
-        "",
-        "",
+        {
+            name: "",
+            portfolio: [0, 0, 0, 0, 0, 0],
+        },
+        {
+            name: "",
+            portfolio: [0, 0, 0, 0, 0, 0],
+        },
+        {
+            name: "",
+            portfolio: [0, 0, 0, 0, 0, 0],
+        },
+        {
+            name: "",
+            portfolio: [0, 0, 0, 0, 0, 0],
+        },
+        {
+            name: "",
+            portfolio: [0, 0, 0, 0, 0, 0],
+        },
     ];
 
     const [ getPlayers, setPlayers ] = useState(players);
@@ -17,7 +32,7 @@ const PlayerConfigView = () => {
     const changePlayer = (value, n) => {
         var players = getPlayers;
 
-        players[n] = value;
+        players[n].name = value;
 
         setPlayers(players);
     }
@@ -26,7 +41,7 @@ const PlayerConfigView = () => {
         var players = getPlayers;
 
         for (var i=0; i<players.length; i++) {
-            if (players[i] === "") {
+            if (players[i].name === "") {
                 // remove this and all following elements
                 players.splice(i, players.length);
             }
