@@ -30,7 +30,7 @@ const ConfigView = () => {
                         <CurrencyView/>
                     </Route>
                     <Route path={`${path}/misc`}>
-
+                        <MiscView/>
                     </Route>
                 </Switch>
             </Router>

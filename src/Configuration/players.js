@@ -58,6 +58,7 @@ const PlayerView = () => {
             <label style={{color: PlayerColors[4] }}>Player #{4+1}</label>
             <input type="text" placeholder="Name" onChange={ (e) => { changePlayer(e.target.value, 4); } }/>
 
+            <br/>
             <button id="submit" onClick={handleSubmit}>Save!</button>
         </div>
         </>

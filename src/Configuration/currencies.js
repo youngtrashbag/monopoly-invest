@@ -71,6 +71,7 @@ const CurrencyView = () => {
             <input type="text" placeholder="Name" onChange={ (e) => { changeCurrency(e.target.value, 5); } }/>
             <input type="number" placeholder="Value" onChange={ (e) => { changeCurrency(e.target.value, 5); } }/>
 
+            <br/>
             <button id="submit" onClick={handleSubmit}>Save!</button>
         </div>
         </>
