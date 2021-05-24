@@ -10,6 +10,8 @@ import PlayerConfigView from "./players";
 import CurrencyConfigView from "./currencies";
 import MiscConfigView from "./misc";
 
+import "./index.css";
+
 const ConfigView = () => {
     const { path } = useRouteMatch();
 

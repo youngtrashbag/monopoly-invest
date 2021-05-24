@@ -8,6 +8,7 @@ import {
 
 import './App.css';
 import ConfigView from "./Configuration/index";
+import PlayersView from "./Players/index";
 
 function App() {
 
@@ -46,7 +47,7 @@ function App() {
         if (modified) {
             setHeaderMessage(message);
         }
-    }, []);
+    }, [players,currencies,settings]);
 
     return (
         <div className="App">
@@ -59,7 +60,11 @@ function App() {
             <Router>
                 <Link to="/">Home</Link>
                 <Link to="/config">Configuration</Link>
+                <Link to="/players">Players</Link>
                 <Switch>
+                    <Route path="/players">
+                        <PlayersView/>
+                    </Route>
                     <Route path="/config">
                         <ConfigView/>
                     </Route>

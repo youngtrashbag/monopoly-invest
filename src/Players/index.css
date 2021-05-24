@@ -1,0 +1,19 @@
+.PlayerWrapper {
+    display: flex;
+    flex-direction: column;
+    height: 50%;
+    width: 100%;
+    margin: 10%;
+    
+    align-self: center;
+    align-items: center;
+}
+
+ul {
+    list-style: none;
+    list-style-type: none;
+}
+ul > li > a {
+    color: inherit;
+    text-decoration: none;
+}
