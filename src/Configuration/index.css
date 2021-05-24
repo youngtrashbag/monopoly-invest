@@ -1,0 +1,28 @@
+form {
+    width: 90%;
+    height: 100%;
+}
+
+.ConfigWrapper {
+    display: flex;
+    flex-direction: column;
+    height: 50%;
+    width: 100%;
+    margin: 10%;
+    
+    align-self: center;
+    align-items: center;
+}
+
+.ListWrapper {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    max-width: 50%;
+}
+
+button#submit {
+    width: auto;
+    height: auto;
+    align-self: center;
+}
