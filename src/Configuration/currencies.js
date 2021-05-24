@@ -14,25 +14,6 @@ const CurrencyView = () => {
 
     const [ getCurrencies, setCurrencies ] = useState(currencies);
 
-    const CurrencyNames = () => {
-        var currencies = getCurrencies;
-        const count = currencies.length;
-
-        var inputs = [];
-        for (var i = 0; i < count; i++) {
-            inputs.push(
-                <>
-                </>
-            );
-        }
-
-        return (
-            <>
-                {inputs}
-            </>
-        );
-    }
-
     const changeCurrency = (value, n) => {
         var currencies = getCurrencies;
 
@@ -46,9 +27,7 @@ const CurrencyView = () => {
     }
 
     const handleSubmit = () => {
-        // TODO: implement formik logic, and save this as window.sessionStorage values i think
         var currencies = getCurrencies;
-        console.log(currencies);
 
         for (var i=0; i<currencies.length; i++) {
             if (currencies[i].name == "") {
@@ -57,9 +36,11 @@ const CurrencyView = () => {
             }
         }
 
+        // debug
         console.log(currencies);
-    };
 
+        window.sessionStorage.setItem("currencies", currencies);
+    };
 
     return (
         <>
@@ -90,7 +71,7 @@ const CurrencyView = () => {
             <input type="text" placeholder="Name" onChange={ (e) => { changeCurrency(e.target.value, 5); } }/>
             <input type="number" placeholder="Value" onChange={ (e) => { changeCurrency(e.target.value, 5); } }/>
 
-            <button id="submit" onClick={handleSubmit}>Save and Continue!</button>
+            <button id="submit" onClick={handleSubmit}>Save!</button>
         </div>
         </>
     );
