@@ -12,7 +12,7 @@ const MiscView = () => {
     const handleSubmit = () => {
         const settings = getSettings;
 
-        window.sessionStorage.setItem("miscSettings", settings);
+        window.sessionStorage.setItem("miscSettings", JSON.stringify(settings));
         
         // debug
         console.log(settings);

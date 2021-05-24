@@ -35,7 +35,7 @@ const PlayerView = () => {
         // debug
         console.log(players);
 
-        window.sessionStorage.setItem("players", players);
+        window.sessionStorage.setItem("players", JSON.stringify(players));
     };
 
     return (

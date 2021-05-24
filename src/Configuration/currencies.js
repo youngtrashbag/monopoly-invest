@@ -39,7 +39,7 @@ const CurrencyView = () => {
         // debug
         console.log(currencies);
 
-        window.sessionStorage.setItem("currencies", currencies);
+        window.sessionStorage.setItem("currencies", JSON.stringify(currencies));
     };
 
     return (
