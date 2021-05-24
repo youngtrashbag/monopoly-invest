@@ -1,8 +1,4 @@
-import {
-    Switch,
-    Route,
-    useRouteMatch,
-} from "react-router-dom";
+import { Switch, Route, useRouteMatch } from "react-router-dom";
 
 import PlayerListView from "./list";
 import PlayerView from "./player";
@@ -13,7 +9,7 @@ const PlayersView = () => {
     const { path } = useRouteMatch();
 
     return (
-        <div className="ConfigWrapper">
+        <div className="PlayerWrapper">
             <Switch>
                 <Route exact path={`${path}/:playerId`}>
                     <PlayerView/>

@@ -1,14 +1,10 @@
 import { useState, useEffect } from "react";
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link,
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import './App.css';
 import ConfigView from "./Configuration/index";
 import PlayersView from "./Players/index";
+import TransferView from "./Transfer/index";
 
 function App() {
 
@@ -61,7 +57,11 @@ function App() {
                 <Link to="/">Home</Link>
                 <Link to="/config">Configuration</Link>
                 <Link to="/players">Players</Link>
+                <Link to="/transfer">Buy/Sell</Link>
                 <Switch>
+                    <Route path="/transfer">
+                        <TransferView/>
+                    </Route>
                     <Route path="/players">
                         <PlayersView/>
                     </Route>

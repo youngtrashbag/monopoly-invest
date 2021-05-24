@@ -1,9 +1,4 @@
-import {
-    Switch,
-    Route,
-    Link,
-    useRouteMatch,
-} from "react-router-dom";
+import { Switch, Route, Link, useRouteMatch } from "react-router-dom";
 
 import PlayerConfigView from "./players";
 import CurrencyConfigView from "./currencies";
