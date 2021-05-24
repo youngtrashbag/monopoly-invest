@@ -17,7 +17,7 @@ const PlayerListView = () => {
     for (var i=0; i<players.length; i++) {
         list.push(
             <li style={{color: PlayerColors[i] }} key={i}>
-                <Link to={`${url}/${i}`}>{ players[i] }</Link>
+                <Link to={`${url}/${i}`}>{ players[i].name }</Link>
             </li>
         );
     }

@@ -14,7 +14,7 @@ const PlayerView = () => {
 
     return (
         <h1 style={{ color: PlayerColors[playerId] }}>
-            { players[playerId] }
+            Portfolio { players[playerId].name }
         </h1>
     )
 }
