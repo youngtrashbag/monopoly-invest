@@ -17,16 +17,14 @@ const PlayersView = () => {
 
     return (
         <div className="ConfigWrapper">
-        <Router>
             <Switch>
                 <Route exact path={`${path}/:playerId`}>
                     <PlayerView/>
                 </Route>
-                <Route exact path={`${path}/`}>
+                <Route path={`${path}/`}>
                     <PlayerListView/>
                 </Route>
             </Switch>
-        </Router>
         </div>
     );
 }

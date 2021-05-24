@@ -18,23 +18,21 @@ const ConfigView = () => {
     return (
         <>
         <div className="ConfigWrapper">
-            <Router>
-                <Link to={`${path}/players`}>Players</Link>
-                <Link to={`${path}/currencies`}>Currencies</Link>
-                <Link to={`${path}/misc`}>Misc</Link>
-                <br/>
-                <Switch>
-                    <Route exact path={`${path}/players`}>
-                        <PlayerConfigView/>
-                    </Route>
-                    <Route exact path={`${path}/currencies`}>
-                        <CurrencyConfigView/>
-                    </Route>
-                    <Route path={`${path}/misc`}>
-                        <MiscConfigView/>
-                    </Route>
-                </Switch>
-            </Router>
+            <Link to={`${path}/players`}>Players</Link>
+            <Link to={`${path}/currencies`}>Currencies</Link>
+            <Link to={`${path}/misc`}>Misc</Link>
+            <br/>
+            <Switch>
+                <Route exact path={`${path}/players`}>
+                    <PlayerConfigView/>
+                </Route>
+                <Route exact path={`${path}/currencies`}>
+                    <CurrencyConfigView/>
+                </Route>
+                <Route path={`${path}/misc`}>
+                    <MiscConfigView/>
+                </Route>
+            </Switch>
         </div>
         </>
     );
