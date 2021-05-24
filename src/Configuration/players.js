@@ -3,7 +3,7 @@ import { useState } from "react";
 import { PlayerColors } from "../global";
 import './index.css';
 
-const PlayerView = () => {
+const PlayerConfigView = () => {
     const players = [
         "",
         "",
@@ -65,4 +65,4 @@ const PlayerView = () => {
     );
 }
 
-export default PlayerView;
+export default PlayerConfigView;

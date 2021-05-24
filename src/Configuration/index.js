@@ -6,9 +6,9 @@ import {
     useRouteMatch,
 } from "react-router-dom";
 
-import PlayerView from "./players";
-import CurrencyView from "./currencies";
-import MiscView from "./misc";
+import PlayerConfigView from "./players";
+import CurrencyConfigView from "./currencies";
+import MiscConfigView from "./misc";
 
 const ConfigView = () => {
     const { path } = useRouteMatch();
@@ -23,13 +23,13 @@ const ConfigView = () => {
                 <br/>
                 <Switch>
                     <Route exact path={`${path}/players`}>
-                        <PlayerView/>
+                        <PlayerConfigView/>
                     </Route>
                     <Route exact path={`${path}/currencies`}>
-                        <CurrencyView/>
+                        <CurrencyConfigView/>
                     </Route>
                     <Route path={`${path}/misc`}>
-                        <MiscView/>
+                        <MiscConfigView/>
                     </Route>
                 </Switch>
             </Router>

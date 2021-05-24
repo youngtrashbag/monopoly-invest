@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import './index.css';
 
-const CurrencyView = () => {
+const CurrencyConfigView = () => {
     const currencies = [
         {name: "", value: 0},
         {name: "", value: 0},
@@ -79,4 +79,4 @@ const CurrencyView = () => {
 
 }
 
-export default CurrencyView;
+export default CurrencyConfigView;

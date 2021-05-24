@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import './index.css';
 
-const MiscView = () => {
+const MiscConfigView = () => {
     const miscSettings = {
         risk: 0,
     };
@@ -43,4 +43,4 @@ const MiscView = () => {
     );
 }
 
-export default MiscView;
+export default MiscConfigView;
