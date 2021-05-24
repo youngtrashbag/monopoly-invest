@@ -36,7 +36,7 @@ const PlayerView = () => {
         <h1 style={{ color: PlayerColors[playerId] }}>
             Portfolio { players[playerId].name }
         </h1>
-        <h3>Total Guthaben: ${totalFiatValue}</h3>
+        <h3>Total Fiat Balance: ${totalFiatValue}</h3>
         <table>
             <thead>
                 <tr>
