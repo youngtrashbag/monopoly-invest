@@ -36,7 +36,7 @@ const BuyView = () => {
                 <CurrencyList/>
             </select>
             &nbsp;
-            <input id="amountInput" type="number" placeholder="Amount" step="0.1" onChange={changeAmount}/>
+            <input id="amountInput" type="number" placeholder="Amount" step="0.1" min="0" onChange={changeAmount}/>
         </div>
         &nbsp;
         <button id="submit" onClick={handleSubmit}>Buy!</button>

@@ -13,6 +13,7 @@ const SellView = () => {
 
         var players = JSON.parse(window.sessionStorage.getItem("players"));
         var currencies = JSON.parse(window.sessionStorage.getItem("currencies"));
+        var settings = JSON.parse(window.sessionStorage.getItem("miscSettings"));
 
         const playerBalance = Number(players[playerId].portfolio[currencyId]);
 
@@ -23,11 +24,20 @@ const SellView = () => {
             // alert not very modern way of showing information, but works good
             alert("Player does not have high enough balance");
         } else {
+            // only charge fees when selling currency to bank
+            var fees = 0;
+            if (settings.transactionFee) {
+                fees = Math.ceil(((amount * currencies[currencyId].value) / 100) * 10);
+
+                alert(`${players[playerId].name} sold ${amount} ${currencies[currencyId].name}\nbank owes $${amount * currencies[currencyId].value}\nfees include distributing $${fees} to players`)
+            } else {
+                alert(`${players[playerId].name} sold ${amount} ${currencies[currencyId].name}\nbank owes $${amount * currencies[currencyId].value}`)
+            }
+
             // subtract value from portfolio
             players[playerId].portfolio[currencyId] = Number(players[playerId].portfolio[currencyId]) - amount;
             window.sessionStorage.setItem("players", JSON.stringify(players));
 
-            alert(`${players[playerId].name} sold ${amount} ${currencies[currencyId].name}\nbank owes $${amount * currencies[currencyId].value}`)
         }
     }
 
@@ -47,7 +57,7 @@ const SellView = () => {
                 <CurrencyList/>
             </select>
             &nbsp;
-            <input id="amountInput" type="number" placeholder="Amount" step="0.1" onChange={changeAmount}/>
+            <input id="amountInput" type="number" placeholder="Amount" step="0.1" min="0" onChange={changeAmount}/>
         </div>
         &nbsp;
         <button id="submit" onClick={handleSubmit}>Sell!</button>

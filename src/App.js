@@ -43,11 +43,7 @@ function App() {
         if (modified) {
             setHeaderMessage(message);
         }
-    }, [
-        window.sessionStorage.getItem("players"),
-        window.sessionStorage.getItem("currencies"),
-        window.sessionStorage.getItem("miscSettings"),
-    ]);
+    }, [players, currencies, settings]);
 
     return (
         <div className="App">
