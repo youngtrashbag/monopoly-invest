@@ -6,4 +6,8 @@ const PlayerColors = [
     "#CCCC00",
 ];
 
+// TODO: add currency colors
+const CurrencyColors = [
+]
+
 export { PlayerColors };

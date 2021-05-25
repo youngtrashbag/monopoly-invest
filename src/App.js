@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-import './App.css';
 import ConfigView from "./Configuration/index";
 import PlayersView from "./Players/index";
 import TransferView from "./Transfer/index";
+import ChartView from "./Charts/index";
+
+import './App.css';
 
 function App() {
 
@@ -60,10 +62,14 @@ function App() {
                         <Link to="/config">Configuration</Link>
                         <Link to="/players">Players</Link>
                         <Link to="/transfer">Buy/Sell</Link>
+                        <Link to="/charts">Charts</Link>
                     </div>
                 </div>
 
                 <Switch>
+                    <Route path="/charts">
+                        <ChartView/>
+                    </Route>
                     <Route path="/transfer">
                         <TransferView/>
                     </Route>
