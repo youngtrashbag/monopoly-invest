@@ -2,6 +2,8 @@ import { useParams } from "react-router-dom";
 
 import { PlayerColors } from "../global";
 
+// TODO: generate chart for user portfolio (very cool idea)
+
 const PlayerView = () => {
     const { playerId } = useParams();
     const players = JSON.parse(window.sessionStorage.getItem("players"));

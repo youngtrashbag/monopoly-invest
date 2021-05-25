@@ -1,26 +1,12 @@
 import { useParams } from "react-router-dom";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
+import { GenerateData } from "./data";
+
 const SingleChartView = () => {
     const { currencyId } = useParams();
 
-    const currencies = JSON.parse(window.sessionStorage.getItem("currencies"));
-    const currency = currencies[currencyId];
-
-    const data = [
-    {
-        name: "0",
-        price: currency.value,
-    },
-    {
-        name: 1,
-        price: currency.value + 100,
-    },
-    {
-        name: 2,
-        price: currency.value - 200,
-    },
-    ];
+    const data = GenerateData(currencyId);
 
     return (
         <>

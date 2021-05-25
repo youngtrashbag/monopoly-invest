@@ -28,18 +28,23 @@ const CurrencyConfigView = () => {
 
     const handleSubmit = () => {
         var currencies = getCurrencies;
-
         for (var i=0; i<currencies.length; i++) {
             if (currencies[i].name === "") {
                 // remove this and all following elements
                 currencies.splice(i, currencies.length);
             }
         }
-
-        // debug
-        console.log(currencies);
-
         window.sessionStorage.setItem("currencies", JSON.stringify(currencies));
+
+        // datastructure is as follows: trenddata[currencyId[iteration]]
+        var trenddata = new Array(currencies.length);
+        // generate trend data array
+        for (var i=0; i<trenddata.length; i++) {
+            // for debugging only
+            //trenddata[i] = [0, 50, -50];
+            trenddata[i] = [0];
+        };
+        window.sessionStorage.setItem("trendData", JSON.stringify(trenddata));
     };
 
     return (
