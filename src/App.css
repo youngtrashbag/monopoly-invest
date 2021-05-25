@@ -12,12 +12,37 @@
     /* background-color: cornflowerblue; */
 }
 
+.HeaderWrapper {
+    display: flex;
+    flex-direction: column;
+    top: 0;
+    width: 100%;
+    height: auto;
+}
+
 .HeaderMessage {
     display: flex;
     flex-direction: row;
     justify-content: center;
 
-    top: 0;
     width: 100%;
     background-color: #CC4444;
+}
+
+.HeaderNavigation {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+
+    width: 100%;
+    padding: 5px;
+    background-color: #6495ED;
+}
+
+.HeaderNavigation > a {
+    margin: 10px;
+    padding: 5px;
+    color: inherit;
+    text-decoration: none;
+    background-color: #74A5FD;
 }

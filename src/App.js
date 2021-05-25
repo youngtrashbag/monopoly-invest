@@ -27,37 +27,46 @@ function App() {
         var modified = false;
 
         if (isNullOrUndef(players)) {
-            message += "Player Names,";
+            message += "Player Names ";
             modified = true;
         }
         if (isNullOrUndef(currencies)) {
-            message += "Currencies,";
+            message += "Currencies ";
             modified = true;
         }
         if (isNullOrUndef(settings)) {
-            message += "MiscSettings,";
+            message += "MiscSettings ";
             modified = true;
         }
 
-        message += " ] in Config";
+        message += "] in Config";
         if (modified) {
             setHeaderMessage(message);
         }
-    }, [players,currencies,settings]);
+    }, [
+        window.sessionStorage.getItem("players"),
+        window.sessionStorage.getItem("currencies"),
+        window.sessionStorage.getItem("miscSettings"),
+    ]);
 
     return (
         <div className="App">
-            {
-                !isNullOrUndef(headerMessage) &&
-                    <div className="HeaderMessage">
-                        <p>{ headerMessage }</p>
-                    </div>
-            }
             <Router>
-                <Link to="/">Home</Link>
-                <Link to="/config">Configuration</Link>
-                <Link to="/players">Players</Link>
-                <Link to="/transfer">Buy/Sell</Link>
+                <div className="HeaderWrapper">
+                    {
+                    !isNullOrUndef(headerMessage) &&
+                        <div className="HeaderMessage">
+                            <p>{ headerMessage }</p>
+                        </div>
+                    }
+                    <div id="HeaderNavigation" className="HeaderNavigation">
+                        <Link to="/">Home</Link>
+                        <Link to="/config">Configuration</Link>
+                        <Link to="/players">Players</Link>
+                        <Link to="/transfer">Buy/Sell</Link>
+                    </div>
+                </div>
+
                 <Switch>
                     <Route path="/transfer">
                         <TransferView/>
