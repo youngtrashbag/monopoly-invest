@@ -10,9 +10,10 @@ import './App.css';
 
 function App() {
 
-    const [ players, setPlayers ] = useState(window.sessionStorage.getItem("players"));
-    const [ currencies, setCurrencies ] = useState(window.sessionStorage.getItem("currencies"));
-    const [ settings, setSettings ] = useState(window.sessionStorage.getItem("miscSettings"));
+    const [ players, setPlayers ] = useState(JSON.parse(window.sessionStorage.getItem("players")));
+    const [ currencies, setCurrencies ] = useState(JSON.parse(window.sessionStorage.getItem("currencies")));
+    const [ trendData, setTrendData ] = useState(JSON.parse(window.sessionStorage.getItem("trendData")));
+    const [ settings, setSettings ] = useState(JSON.parse(window.sessionStorage.getItem("miscSettings")));
 
     const [ headerMessage, setHeaderMessage ] = useState();
 
@@ -29,7 +30,7 @@ function App() {
         var modified = false;
 
         if (isNullOrUndef(players)) {
-            message += "Player Names ";
+            message += "PlayerNames ";
             modified = true;
         }
         if (isNullOrUndef(currencies)) {
@@ -45,7 +46,65 @@ function App() {
         if (modified) {
             setHeaderMessage(message);
         }
-    }, [players, currencies, settings]);
+    }, [players, currencies, settings, headerMessage]);
+
+    // litteraly copied code from Configuration/currencies.js
+    if (isNullOrUndef(trendData)) {
+        // datastructure is as follows: trenddata[currencyId[iteration]]
+        var trenddata = new Array(currencies.length);
+        // generate trend data array
+        for (var i=0; i<trenddata.length; i++) {
+            // for debugging only
+            //trenddata[i] = [0, 50, -50];
+            trenddata[i] = [0];
+        };
+        setTrendData(trenddata);
+    }
+
+    // only execute if all values have been configured
+    // header message is empty, all values have been configured
+    if (!(isNullOrUndef(players)
+        || isNullOrUndef(currencies)
+        || isNullOrUndef(settings)
+        )) {
+        // generate percentual changes every minute
+        // 60s * 1000ms = 60000
+        setInterval(() => {
+            var max = 5;
+            switch (settings.risk) {
+                // very high risk
+                case 3:
+                    max = 70;
+                    break;
+                // high risk
+                case 2:
+                    max = 35;
+                    break;
+                // medium risk
+                case 1:
+                    max = 45;
+                    break;
+                // low risk
+                default:
+                    break;
+            }
+            function randomNum() {
+                // negate percentual change
+                var change = Math.floor(Math.random() * max);
+                if (Math.round(Math.random()) !== 0) {
+                    change *= -1;
+                }
+
+                return change;
+            }
+            
+            for (var i=0; i<currencies.length; i++) {
+                trendData[i].push(randomNum());
+            }
+
+            window.sessionStorage.setItem("trendData", JSON.stringify(trendData));
+        }, 60000);
+    }
 
     return (
         <div className="App">

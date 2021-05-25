@@ -26,7 +26,7 @@ const ChartView = () => {
                     <SingleChartView/>
                 </Route>
                 <Route exact path={`${path}/`}>
-                    <h1>ghailo</h1>
+                    <h1>todo: generate chart with graphs overlaid</h1>
                 </Route>
             </Switch>
         </div>

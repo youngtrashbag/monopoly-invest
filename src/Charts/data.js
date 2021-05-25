@@ -9,7 +9,6 @@ function GenerateData(currencyId) {
     for (var i=0; i<trendData[currencyId].length; i++) {
         // modifier is percent sinking or rising
         const modifier = Number(trendData[currencyId][i]);
-        console.log(modifier);
         const newPrice = (oldPrice / 100) * (100 + modifier);
         oldPrice = newPrice;
 
