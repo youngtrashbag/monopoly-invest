@@ -51,7 +51,7 @@ function App() {
     // litteraly copied code from Configuration/currencies.js
     if (isNullOrUndef(trendData)) {
         // datastructure is as follows: trenddata[currencyId[iteration]]
-        var trenddata = new Array(currencies.length);
+        var trenddata = new Array(6);
         // generate trend data array
         for (var i=0; i<trenddata.length; i++) {
             // for debugging only
