@@ -1,23 +1,18 @@
 # todo
 
-## Functionality
+## UI
 
-- advance button (regenerate plus percentage for each currency)
+- [ ] when settings change, notify user
+- [ ] add graph to user portfolio
+- [ ] add pause button for random data generation (`timeInterval`)
+- [ ] add gloabl color scheme
+- [ ] different color for each currency
 
-## User
+## functionality
 
-- select up to 5 users
-- different colors
-- give each user a name
+- [ ] load data into config if exists (`sessionStorage`)
+- [ ] add util functions (`currentValue(currencyId)`)
 
-## Cryptocurrencies
+## docs
 
-- up to 6
-- give each one an individual name
-- randomly change course ([react charts(smooth lines)](https://react-charts.js.org/))
-
-## actual todo's
-
-- [ ] implement formik, to save all values in sessionStorage (or maybe state if I can figure it out)
-- [ ] install react graph and implement it with random values
-- [ ] install random generator (or maybe fetch from random api) and then calculate new currency value via random gen
+- [ ] clearly document datastructures
