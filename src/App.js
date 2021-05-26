@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link, useRoutePath, useRouteMatch } from "react-router-dom";
 
 import ConfigView from "./Configuration/index";
 import PlayersView from "./Players/index";
@@ -9,7 +9,6 @@ import ChartView from "./Charts/index";
 import './App.css';
 
 function App() {
-
     const [ players, setPlayers ] = useState(JSON.parse(window.sessionStorage.getItem("players")));
     const [ currencies, setCurrencies ] = useState(JSON.parse(window.sessionStorage.getItem("currencies")));
     const [ trendData, setTrendData ] = useState(JSON.parse(window.sessionStorage.getItem("trendData")));
@@ -26,27 +25,44 @@ function App() {
     }
 
     useEffect(() => {
-        var message = "Please Configure [ ";
         var modified = false;
+        var links = [];
 
         if (isNullOrUndef(players)) {
-            message += "PlayerNames ";
+            links.push(
+                <>
+                <Link to={`/config/players`}>Player Names</Link>
+                &nbsp;
+                </>
+            )
             modified = true;
         }
         if (isNullOrUndef(currencies)) {
-            message += "Currencies ";
+            links.push(
+                <>
+                <Link to={`/config/currencies`}>Currencies</Link>
+                &nbsp;
+                </>
+            )
             modified = true;
         }
         if (isNullOrUndef(settings)) {
-            message += "MiscSettings ";
+            links.push(
+                <>
+                <Link to={`/config/misc`}>Misc Settings</Link>
+                &nbsp;
+                </>
+            )
             modified = true;
         }
 
-        message += "] in Config";
         if (modified) {
-            setHeaderMessage(message);
+            console.log(links.length);
+            setHeaderMessage(
+                <p>Please Configure [ {links}] in Config</p>
+            );
         }
-    }, [players, currencies, settings, headerMessage]);
+    }, [players, currencies, settings]);
 
     // litteraly copied code from Configuration/currencies.js
     if (isNullOrUndef(trendData)) {
@@ -113,7 +129,7 @@ function App() {
                     {
                     !isNullOrUndef(headerMessage) &&
                         <div className="HeaderMessage">
-                            <p>{ headerMessage }</p>
+                            { headerMessage }
                         </div>
                     }
                     <div id="HeaderNavigation" className="HeaderNavigation">
