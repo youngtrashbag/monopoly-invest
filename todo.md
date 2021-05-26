@@ -15,4 +15,4 @@
 
 ## docs
 
-- [ ] clearly document datastructures
+- [x] clearly document datastructures
