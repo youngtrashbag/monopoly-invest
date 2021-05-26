@@ -28,7 +28,7 @@ const SingleChartView = () => {
             <YAxis />
             <Tooltip />
             <Legend />
-            <Line type="linear" dataKey="price" stroke="#82ca9d" />
+            <Line type="linear" dataKey="price" stroke="#82ca9d" dot={false} />
             </LineChart>
         </ResponsiveContainer>
         </div>

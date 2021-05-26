@@ -88,10 +88,6 @@ function App() {
         setInterval(() => {
             var max = 5;
             switch (settings.risk) {
-                // very high risk
-                case 3:
-                    max = 70;
-                    break;
                 // high risk
                 case 2:
                     max = 35;
@@ -107,7 +103,10 @@ function App() {
             function randomNum() {
                 // negate percentual change
                 var change = Math.floor(Math.random() * max);
-                if (Math.round(Math.random()) !== 0) {
+                var rand = Math.random();
+
+                if (rand > 0.5) {
+                    console.log("negative");
                     change *= -1;
                 }
 

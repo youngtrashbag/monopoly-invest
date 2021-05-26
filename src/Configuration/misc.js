@@ -34,7 +34,6 @@ const MiscConfigView = () => {
                 <option value="0">Low</option>
                 <option value="1">Medium</option>
                 <option value="2">High</option>
-                <option value="3">Very High</option>
             </select>
             <br/>
             <label>Transaction Fees<br/>(redistribute 10% of each sale to players)</label>
