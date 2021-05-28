@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { BrowserRouter as Router, Switch, Route, Link, useRoutePath, useRouteMatch } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import ConfigView from "./Configuration/index";
 import PlayersView from "./Players/index";
@@ -74,7 +74,9 @@ function App() {
             //trenddata[i] = [0, 50, -50];
             trenddata[i] = [0];
         };
+
         setTrendData(trenddata);
+        window.sessionStorage.setItem("trendData", JSON.stringify(trenddata));
     }
 
     // only execute if all values have been configured
@@ -100,13 +102,13 @@ function App() {
                 default:
                     break;
             }
+
             function randomNum() {
                 // negate percentual change
                 var change = Math.floor(Math.random() * max);
                 var rand = Math.random();
 
                 if (rand > 0.5) {
-                    console.log("negative");
                     change *= -1;
                 }
 
