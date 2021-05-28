@@ -23,8 +23,6 @@ const PlayerList = () => {
 const CurrencyList = () => {
     const currencies = JSON.parse(window.sessionStorage.getItem("currencies"));
 
-    // TODO: current value
-
     var list = [];
     for (var i=0; i<currencies.length; i++) {
         list.push(

@@ -8,7 +8,6 @@ const ChartView = () => {
     const { path, url } = useRouteMatch();
     const currencies = JSON.parse(window.sessionStorage.getItem("currencies"));
 
-    // TODO: generate links for all currencies
     var currencyLinks = [];
     for (var i=0; i<currencies.length; i++) {
 

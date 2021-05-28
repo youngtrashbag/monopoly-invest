@@ -6,7 +6,6 @@ const PlayerColors = [
     "#CCCC00",
 ];
 
-// TODO: add currency colors
 const CurrencyColors = [
     // bitcoin
     "#F7931A",

@@ -155,7 +155,13 @@ function App() {
                         <ConfigView/>
                     </Route>
                     <Route exact path="/">
-                        <h1>default view</h1>
+                        <h1>Monopoly Investment Game</h1>
+                        <p>Use this as an Addon for your Game if you want to make (or lose) a quick buck.</p>
+                        <h2>Getting Started</h2>
+                        <p>Enter your Players in the <Link to="/config/players">Settings</Link>&#20;
+                        as well as the <Link to="/config/currencies">Currencies</Link> you want to invest in. 
+                        There also are some <Link to="/config/misc">miscellaneous settings</Link>.
+                        </p>
                     </Route>
                     <Route path="*">
                         <h1>Not Found</h1>

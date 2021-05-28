@@ -7,5 +7,14 @@ Invest your Monopoly money into (slightly) unstable cryptocurrencies
 - Select up to 5 Players
 - Name up to 6 Cryptocurrencies yourself
 - View Charts for each Currency
-- Invest Fiat Money into Currency
-- Withdraw Fiat Money from Currency
+- Invest Money into Currencies
+- Withdraw Money from Currencies
+
+## Getting Started
+
+- Make sure you have [Node](https://nodejs.org/) installed
+
+1. `npm install`
+2. `npm run start`
+
+You're good to go!
