@@ -14,7 +14,7 @@ const PlayersView = () => {
                 <Route exact path={`${path}/:playerId`}>
                     <PlayerView/>
                 </Route>
-                <Route path={`${path}/`}>
+                <Route path={`${path}`}>
                     <PlayerListView/>
                 </Route>
             </Switch>

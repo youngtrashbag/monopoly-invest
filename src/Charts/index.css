@@ -1,4 +1,4 @@
-.ChartWrapper {
+.ChartViewWrapper {
     display: flex;
     flex-direction: column;
     height: 50%;
@@ -9,7 +9,7 @@
     align-items: center;
 }
 
-.SingleChartWrapper {
+.ChartWrapper {
     display: block;
     width: 60%;
     height: 60%;

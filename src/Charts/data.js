@@ -14,7 +14,7 @@ function GenerateData(currencyId) {
 
         data.push({
             name: i,
-            price: newPrice,
+            value: newPrice,
         });
     };
 

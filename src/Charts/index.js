@@ -1,6 +1,6 @@
 import { Switch, Route, Link, useRouteMatch } from "react-router-dom";
 
-import SingleChartView from "./chart";
+import {  AllCurrenciesChartView, SingleChartView } from "./chart";
 import { CurrencyColors } from "../global";
 import "./index.css";
 
@@ -20,7 +20,7 @@ const ChartView = () => {
     }
 
     return (
-        <div className="ChartWrapper">
+        <div className="ChartViewWrapper">
             <Link to={`${url}/`}>All Currencies</Link>
             <br/>
             <ul>
@@ -30,8 +30,8 @@ const ChartView = () => {
                 <Route path={`${path}/:currencyId`}>
                     <SingleChartView/>
                 </Route>
-                <Route exact path={`${path}/`}>
-                    <h1>todo: generate chart with graphs overlaid</h1>
+                <Route exact path={`${path}`}>
+                    <AllCurrenciesChartView/>
                 </Route>
             </Switch>
         </div>
