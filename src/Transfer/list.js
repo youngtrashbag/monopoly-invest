@@ -1,5 +1,5 @@
 import { PlayerColors } from "../global";
-import { currentCurrencyValue } from "../utils";
+import { currentCurrencyValue, playerTotalBalance } from "../utils";
 import { CurrencyColors } from "../global";
 
 const PlayerList = () => {
@@ -12,7 +12,7 @@ const PlayerList = () => {
             style={{color: PlayerColors[i] }}
             key={i}
             value={i}>
-                { players[i].name }
+                { `${players[i].name} $${playerTotalBalance(i)}` }
             </option>
         );
     }

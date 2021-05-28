@@ -23,4 +23,21 @@ const currentCurrencyValue = (currencyId) => {
     return newPrice;
 }
 
-export { isNullOrUndef, currentCurrencyValue };
+const playerBalance = (playerId, currencyId) => {
+    const cValue = currentCurrencyValue(currencyId);
+    const player = JSON.parse(window.sessionStorage.getItem("players"))[playerId]
+    return player.portfolio[currencyId] * cValue;
+}
+
+const playerTotalBalance = (playerId) => {
+    const player = JSON.parse(window.sessionStorage.getItem("players"))[playerId]
+
+    var totalBalance = 0;
+    for (var c=0; c<player.portfolio; c++) {
+        totalBalance += player.portfolio[c] * currentCurrencyValue(c);
+    }
+
+    return totalBalance;
+}
+
+export { isNullOrUndef, currentCurrencyValue, playerBalance, playerTotalBalance };

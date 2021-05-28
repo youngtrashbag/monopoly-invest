@@ -39,7 +39,6 @@ const SellView = () => {
             // subtract value from portfolio
             players[playerId].portfolio[currencyId] = Number(players[playerId].portfolio[currencyId]) - amount;
             window.sessionStorage.setItem("players", JSON.stringify(players));
-
         }
     }
 
