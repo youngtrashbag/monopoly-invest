@@ -6,6 +6,8 @@ import PlayersView from "./Players/index";
 import TransferView from "./Transfer/index";
 import ChartView from "./Charts/index";
 
+import { isNullOrUndef } from "./utils";
+
 import './App.css';
 
 function App() {
@@ -15,14 +17,6 @@ function App() {
     const [ settings, setSettings ] = useState(JSON.parse(window.sessionStorage.getItem("miscSettings")));
 
     const [ headerMessage, setHeaderMessage ] = useState();
-
-    function isNullOrUndef(value) {
-        if (value === null || value === undefined) {
-            return true;
-        } else {
-            return false;
-        }
-    }
 
     useEffect(() => {
         var modified = false;
