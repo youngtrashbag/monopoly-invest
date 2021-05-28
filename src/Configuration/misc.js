@@ -14,10 +14,10 @@ const MiscConfigView = () => {
         const settings = getSettings;
 
         window.sessionStorage.setItem("miscSettings", JSON.stringify(settings));
-        
-        // debug
-        console.log(settings);
-    }
+
+        // refresh
+        window.location.reload();
+    };
 
     return (
         <>

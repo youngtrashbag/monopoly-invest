@@ -46,11 +46,9 @@ const PlayerConfigView = () => {
                 players.splice(i, players.length);
             }
         }
-
-        // debug
-        console.log(players);
-
         window.sessionStorage.setItem("players", JSON.stringify(players));
+        // refresh
+        window.location.reload();
     };
 
     return (
