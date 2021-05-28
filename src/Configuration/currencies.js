@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+import { CurrencyColors } from "../global";
 import './index.css';
 
 const CurrencyConfigView = () => {
@@ -56,27 +57,27 @@ const CurrencyConfigView = () => {
         <div className="ListWrapper">
             <h2>Name Currencies</h2>
 
-            <label>Currency #{0+1}</label>
+            <label style={{color: CurrencyColors[0] }}>Currency #{0+1}</label>
             <input type="text" placeholder="Name" onChange={ (e) => { changeCurrency(e.target.value, 0); } }/>
             <input type="number" placeholder="Starting Value" onChange={ (e) => { changeCurrency(e.target.value, 0); } }/>
 
-            <label>Currency #{1+1}</label>
+            <label style={{color: CurrencyColors[1] }}>Currency #{1+1}</label>
             <input type="text" placeholder="Name" onChange={ (e) => { changeCurrency(e.target.value, 1); } }/>
             <input type="number" placeholder="Starting Value" onChange={ (e) => { changeCurrency(e.target.value, 1); } }/>
 
-            <label>Currency #{2+1}</label>
+            <label style={{color: CurrencyColors[2] }}>Currency #{2+1}</label>
             <input type="text" placeholder="Name" onChange={ (e) => { changeCurrency(e.target.value, 2); } }/>
             <input type="number" placeholder="Starting Value" onChange={ (e) => { changeCurrency(e.target.value, 2); } }/>
 
-            <label>Currency #{3+1}</label>
+            <label style={{color: CurrencyColors[3] }}>Currency #{3+1}</label>
             <input type="text" placeholder="Name" onChange={ (e) => { changeCurrency(e.target.value, 3); } }/>
             <input type="number" placeholder="Starting Value" onChange={ (e) => { changeCurrency(e.target.value, 3); } }/>
 
-            <label>Currency #{4+1}</label>
+            <label style={{color: CurrencyColors[4] }}>Currency #{4+1}</label>
             <input type="text" placeholder="Name" onChange={ (e) => { changeCurrency(e.target.value, 4); } }/>
             <input type="number" placeholder="Starting Value" onChange={ (e) => { changeCurrency(e.target.value, 4); } }/>
 
-            <label>Currency #{5+1}</label>
+            <label style={{color: CurrencyColors[5] }}>Currency #{5+1}</label>
             <input type="text" placeholder="Name" onChange={ (e) => { changeCurrency(e.target.value, 5); } }/>
             <input type="number" placeholder="Starting Value" onChange={ (e) => { changeCurrency(e.target.value, 5); } }/>
 

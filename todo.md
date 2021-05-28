@@ -6,7 +6,7 @@
 - [ ] add graph to user portfolio
 - [ ] add pause button for random data generation (`timeInterval`)
 - [ ] add gloabl color scheme
-- [ ] different color for each currency
+- [x] different color for each currency
 
 ## functionality
 

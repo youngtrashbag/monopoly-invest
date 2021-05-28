@@ -8,6 +8,16 @@ const PlayerColors = [
 
 // TODO: add currency colors
 const CurrencyColors = [
+    // bitcoin
+    "#F7931A",
+    // ethereum
+    //"#15b56d",
+    "#07c466",
+    // other
+    "#3861fb",
+    "#ef329d",
+    "#c2ef45",
+    "#4bb7c1",
 ]
 
-export { PlayerColors };
+export { PlayerColors, CurrencyColors };

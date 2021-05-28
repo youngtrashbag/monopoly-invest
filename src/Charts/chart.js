@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
+import { CurrencyColors } from "../global";
 import { GenerateData } from "./data";
 
 const SingleChartView = () => {
@@ -28,7 +29,7 @@ const SingleChartView = () => {
             <YAxis />
             <Tooltip />
             <Legend />
-            <Line type="linear" dataKey="price" stroke="#82ca9d" dot={false} />
+            <Line type="linear" dataKey="price" stroke={CurrencyColors[currencyId]} dot={false} />
             </LineChart>
         </ResponsiveContainer>
         </div>

@@ -1,5 +1,6 @@
 import { PlayerColors } from "../global";
 import { currentCurrencyValue } from "../utils";
+import { CurrencyColors } from "../global";
 
 const PlayerList = () => {
     const players = JSON.parse(window.sessionStorage.getItem("players"));
@@ -28,6 +29,7 @@ const CurrencyList = () => {
     for (var i=0; i<currencies.length; i++) {
         list.push(
             <option
+            style={{color: CurrencyColors[i] }}
             key={i}
             value={i}>
                 { `${currencies[i].name} $${currentCurrencyValue(i)}` }
