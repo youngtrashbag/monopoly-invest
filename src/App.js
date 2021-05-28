@@ -80,7 +80,7 @@ function App() {
         || isNullOrUndef(settings)
         )) {
         // generate percentual changes every minute
-        // 60s * 1000ms = 60000
+        // 90s * 1000ms = 90000
         setInterval(() => {
             var max = 5;
             switch (settings.risk) {
@@ -119,7 +119,7 @@ function App() {
             }
 
             window.sessionStorage.setItem("trendData", JSON.stringify(trendData));
-        }, 60000);
+        }, 90000);
     }
 
     return (
