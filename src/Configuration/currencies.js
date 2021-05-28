@@ -46,6 +46,7 @@ const CurrencyConfigView = () => {
         };
         window.sessionStorage.setItem("trendData", JSON.stringify(trenddata));
 
+        alert("Changed Currency Settings");
         // refresh
         window.location.reload();
     };

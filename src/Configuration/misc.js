@@ -15,6 +15,7 @@ const MiscConfigView = () => {
 
         window.sessionStorage.setItem("miscSettings", JSON.stringify(settings));
 
+        alert("Changed Misc Settings");
         // refresh
         window.location.reload();
     };

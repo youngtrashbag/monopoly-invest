@@ -2,7 +2,7 @@
 
 ## UI
 
-- [ ] when settings change, notify user
+- [x] when settings change, notify user
 - [ ] add graph to user portfolio
 - [ ] add pause button for random data generation (`timeInterval`)
 - [ ] add gloabl color scheme
@@ -11,7 +11,7 @@
 ## functionality
 
 - [ ] load data into config if exists (`sessionStorage`)
-- [ ] add util functions (`currentValue(currencyId)`)
+- [x] add util functions (`currentValue(currencyId)`)
 
 ## docs
 

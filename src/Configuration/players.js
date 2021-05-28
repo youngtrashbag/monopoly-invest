@@ -47,6 +47,8 @@ const PlayerConfigView = () => {
             }
         }
         window.sessionStorage.setItem("players", JSON.stringify(players));
+
+        alert("Changed Player Settings");
         // refresh
         window.location.reload();
     };
