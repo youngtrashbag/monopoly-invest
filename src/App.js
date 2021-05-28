@@ -104,7 +104,12 @@ function App() {
 
                 if (rand > 0.5) {
                     change *= -1;
+                    // make decrease not so hurtful
+                    change += 2.5;
                 }
+
+                // this is supposed to make investing overall profitable
+                change += 2.5
 
                 return change;
             }
