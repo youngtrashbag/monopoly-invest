@@ -1,4 +1,5 @@
 import { PlayerList, CurrencyList } from "./list";
+import { currentCurrencyValue } from "../utils";
 
 const BuyView = () => {
     const changeAmount = () => {
@@ -17,7 +18,7 @@ const BuyView = () => {
         players[playerId].portfolio[currencyId] = Number(players[playerId].portfolio[currencyId]) + Number(amount);
         window.sessionStorage.setItem("players", JSON.stringify(players));
 
-        alert(`${players[playerId].name} bought ${amount} ${currencies[currencyId].name}\nthey owe $${amount * currencies[currencyId].value} to the bank`)
+        alert(`${players[playerId].name} bought ${amount} ${currencies[currencyId].name}\nthey owe $${amount * currentCurrencyValue(currencyId)} to the bank`)
     }
 
     // TODO: show balance of user

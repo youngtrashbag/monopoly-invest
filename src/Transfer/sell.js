@@ -1,4 +1,5 @@
 import { PlayerList, CurrencyList } from "./list";
+import { currentCurrencyValue } from "../utils";
 
 const SellView = () => {
     const changeAmount = () => {
@@ -16,6 +17,7 @@ const SellView = () => {
         var settings = JSON.parse(window.sessionStorage.getItem("miscSettings"));
 
         const playerBalance = Number(players[playerId].portfolio[currencyId]);
+        const currentPrice = currentCurrencyValue(currencyId);
 
         // validate if user has enough
         if (playerBalance < Number(amount)) {
@@ -27,11 +29,11 @@ const SellView = () => {
             // only charge fees when selling currency to bank
             var fees = 0;
             if (settings.transactionFee) {
-                fees = Math.ceil(((amount * currencies[currencyId].value) / 100) * 10);
+                fees = Math.ceil(((amount * currentCurrencyValue) / 100) * 10);
 
-                alert(`${players[playerId].name} sold ${amount} ${currencies[currencyId].name}\nbank owes $${amount * currencies[currencyId].value}\nfees include distributing $${fees} to players`)
+                alert(`${players[playerId].name} sold ${amount} ${currencies[currencyId].name}\nbank owes $${amount * currentPrice}\nfees include distributing $${fees} to players`)
             } else {
-                alert(`${players[playerId].name} sold ${amount} ${currencies[currencyId].name}\nbank owes $${amount * currencies[currencyId].value}`)
+                alert(`${players[playerId].name} sold ${amount} ${currencies[currencyId].name}\nbank owes $${amount * currentPrice}`)
             }
 
             // subtract value from portfolio

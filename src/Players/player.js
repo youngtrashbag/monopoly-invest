@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 
 import { PlayerColors } from "../global";
+import { currentCurrencyValue } from "../utils";
 
 // TODO: generate chart for user portfolio (very cool idea)
 
@@ -20,7 +21,7 @@ const PlayerView = () => {
     for (var i=0; i<currencies.length; i++) {
         const currencyName = currencies[i].name;
         const amountOwned = players[playerId].portfolio[i];
-        const fiatValue = players[playerId].portfolio[i] * currencies[i].value;
+        const fiatValue = players[playerId].portfolio[i] * currentCurrencyValue(i);
 
         totalFiatValue += fiatValue;
 
