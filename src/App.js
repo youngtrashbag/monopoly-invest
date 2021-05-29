@@ -6,7 +6,7 @@ import PlayersView from "./Players/index";
 import TransferView from "./Transfer/index";
 import ChartView from "./Charts/index";
 
-import { isNullOrUndef } from "./utils";
+import { isNullOrUndef, randomNumber } from "./utils";
 
 import './App.css';
 
@@ -90,32 +90,15 @@ function App() {
                     break;
                 // medium risk
                 case 1:
-                    max = 45;
+                    max = 20;
                     break;
                 // low risk
                 default:
                     break;
             }
 
-            function randomNum() {
-                // negate percentual change
-                var change = Math.floor(Math.random() * max);
-                var rand = Math.random();
-
-                if (rand > 0.5) {
-                    change *= -1;
-                    // make decrease not so hurtful
-                    change += 2;
-                }
-
-                // this is supposed to make investing overall profitable
-                change += 1;
-
-                return change;
-            }
-            
             for (var i=0; i<currencies.length; i++) {
-                trendData[i].push(randomNum());
+                trendData[i].push(randomNumber(max));
             }
 
             window.sessionStorage.setItem("trendData", JSON.stringify(trendData));

@@ -40,4 +40,23 @@ const playerTotalBalance = (playerId) => {
     return totalBalance;
 }
 
-export { isNullOrUndef, currentCurrencyValue, playerBalance, playerTotalBalance };
+// random positive or negative number
+// (for random percent generating)
+const randomNumber = (max) => {
+    // negate percentual change
+    var number = Math.floor(Math.random() * max);
+    var rand = Math.random();
+
+    if (rand > 0.5) {
+        number *= -1;
+        // make decrease not so hurtful
+        number += 2;
+    }
+
+    // this is supposed to make investing overall profitable
+    number += 1;
+
+    return change;
+}
+
+export { isNullOrUndef, currentCurrencyValue, playerBalance, playerTotalBalance, randomNumber };
