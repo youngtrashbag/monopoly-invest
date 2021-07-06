@@ -18,3 +18,13 @@ Invest your Monopoly money into (slightly) unstable cryptocurrencies
 2. `npm run start`
 
 You're good to go!
+
+## Screenshots
+
+![homepage](./docs/img/homepage.png)
+![players](./docs/img/players.png)
+![portfolio](./docs/img/portfolio.png)
+![graph doge](./docs/img/graph-doge.png)
+![buy](./docs/img/buy.png)
+![graph litecoin](./docs/img/graph-litecoin.png)
+![graph all(bitcoin makes others almost invisible)](./docs/img/graph-all.png)

@@ -56,7 +56,7 @@ const randomNumber = (max) => {
     // this is supposed to make investing overall profitable
     number += 1;
 
-    return change;
+    return number;
 }
 
 export { isNullOrUndef, currentCurrencyValue, playerBalance, playerTotalBalance, randomNumber };
