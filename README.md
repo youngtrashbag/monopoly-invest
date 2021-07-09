@@ -14,7 +14,7 @@ Invest your Monopoly money into (slightly) unstable cryptocurrencies
 
 - Make sure you have [Node](https://nodejs.org/) installed
 
-1. `npm install`
+1. `npm install .`
 2. `npm run start`
 
 You're good to go!
