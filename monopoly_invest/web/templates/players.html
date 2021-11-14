@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}Players{% endblock %}
+{% block content %}
+    <h2>New Player</h2>
+    <form action="/api/player/new" method="POST">
+        <label>Name</label>
+        <input type="text" name="name">
+        <input type="submit" value="Add Player">
+    </form>
+
+    <h2>Player List</h2>
+    {% for n, p in player_list.items() %}
+        <h3>{{ n }} - ${{ p.get_current_fortune() }}</h3>
+    {% endfor %}
+{% endblock %}

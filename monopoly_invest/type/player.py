@@ -1,8 +1,13 @@
 from __future__ import annotations
 from typing import List
-from marshmallow import Schema, fields
+from flask_marshmallow import Schema
+from flask_marshmallow.fields import fields
 
 from monopoly_invest.type.currency import Currency
+
+
+# TODO: Maybe persist, and not only instantiate on runtime
+player_list = {}
 
 
 class Player:
@@ -21,5 +26,5 @@ class Player:
 
 
 class PlayerSchema(Schema):
-    name = fields.String(required=True)
-    portfolio = fields.Dict(keys=fields.Str(), values=fields.Float())
+    name = fields.Str(required=True)
+    portfolio = fields.Dict(keys=fields.Str(), values=fields.Float(), required=False)

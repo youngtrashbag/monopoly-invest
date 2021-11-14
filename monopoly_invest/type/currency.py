@@ -1,5 +1,10 @@
 from __future__ import annotations
-from marshmallow import Schema, fields
+from flask_marshmallow import Schema
+from flask_marshmallow.fields import fields
+
+
+# TODO: Maybe persist, and not only instantiate on runtime
+currency_list = {}
 
 
 class Currency:
@@ -14,6 +19,6 @@ class Currency:
 
 
 class CurrencySchema(Schema):
-    name = fields.String(required=True)
+    name = fields.Str(required=True)
     base_value = fields.Integer(required=True)
-    values = fields.List(fields.Float())
+    values = fields.List(fields.Float(), required=False)

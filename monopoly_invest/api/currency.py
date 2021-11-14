@@ -1,14 +1,10 @@
 from __future__ import annotations
 from flask import Blueprint, request, jsonify, abort
-from marshmallow import ValidationError
 
-from monopoly_invest.type.currency import Currency, CurrencySchema
+from monopoly_invest.type.currency import Currency, CurrencySchema, currency_list
 
 
 currency = Blueprint('Currency', __name__)
-
-# TODO: Maybe persist, and not only instantiate on runtime
-currency_list = {}
 
 
 @currency.route('/new', methods=['POST'])
@@ -22,7 +18,7 @@ def new_currency():
         currency_list[new_c.name] = new_c
 
         return jsonify(new_c), 201
-    except ValidationError as e:
+    except Exception as e:
         return jsonify(e), 400
 
 

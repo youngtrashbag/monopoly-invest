@@ -1,14 +1,12 @@
 from __future__ import annotations
-from flask import Blueprint, request, jsonify, abort
-from marshmallow import ValidationError
 
-from monopoly_invest.type.player import Player, PlayerSchema
+import json
+from flask import Blueprint, request, jsonify, abort
+
+from monopoly_invest.type.player import Player, PlayerSchema, player_list
 
 
 player = Blueprint('Player', __name__)
-
-# TODO: Maybe persist, and not only instantiate on runtime
-player_list = {}
 
 
 # TODO: Maybe use generics, because it could potentially save code
@@ -23,8 +21,9 @@ def new_player():
         player_list[new_p.name] = new_p
 
         return jsonify(new_p), 201
-    except ValidationError as e:
-        return jsonify(e), 400
+    except Exception as e:
+        print(e)
+        return 'not work, sorry', 400
 
 
 @player.route('/<name>', methods=['GET'])
