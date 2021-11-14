@@ -1,25 +1,13 @@
-from flask import Blueprint, request, jsonify
-from marshmallow import Schema, fields, ValidationError
+from flask import Blueprint, request, jsonify, abort
+from marshmallow import ValidationError
+
+from monopoly_invest.type.currency import Currency, CurrencySchema
 
 
 currency = Blueprint('Currency', __name__)
 
 # TODO: Maybe persist, and not only instantiate on runtime
 currency_list = {}
-
-
-class Currency:
-    def __init__(self, name: str, value: int):
-        self.name = name
-        self.base_value = value
-        # list of percentual changes
-        self.changes = []
-
-
-class CurrencySchema(Schema):
-    name = fields.String(required=True)
-    value = fields.Integer(required=True)
-    changes = fields.List(fields.Float())
 
 
 @currency.route('/new', methods=['POST'])
@@ -42,16 +30,13 @@ def get_currency(name):
     if c := currency_list.get(name):
         return jsonify(c), 200
     else:
-        return 404
+        return abort(404)
 
 
 @currency.route('/<name>/value', methods=['GET'])
 def get_value(name):
     if c := currency_list.get(name):
-        value = c.value
-        for change in c.changes:
-            value *= change / 100
-
+        value = c.get_current_value()
         return jsonify({value: value}), 200
     else:
-        return 404
+        return abort(404)

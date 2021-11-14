@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Monopoly Invest</title>
+    <link rel="stylesheet" type="text/css" href="/static/index.css"
+</head>
+<body>
+    <div className="HeaderWrapper">
+        {% if header_message %}
+        <div className="HeaderMessage">
+            {{ headerMessage }}
+        </div>
+        {% endif %}
+        <div id="HeaderNavigation" class="HeaderNavigation">
+        <a href="/">Home</a>
+        <a href="/config">Configuration</a>
+        <a href="/players">Players</a>
+        <a href="/transfer">Buy/Sell</a>
+        <a href="/charts">Charts</a>
+        </div>
+    </div>
+    <h1>Monopoly Investment Game</h1>
+    <p>Use this as an Addon for your Game if you want to make (or lose) a quick buck.</p>
+    <h2>Getting Started</h2>
+    <p>
+    Enter your Players in the <a href="/config/players">Settings</a>&#20;
+    as well as the <a href="/config/currencies">Currencies</a> you want to invest in.
+    There also are some <a href="/config/misc">miscellaneous settings</a>.
+    </p>
+</body>
+</html>

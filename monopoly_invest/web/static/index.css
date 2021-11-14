@@ -1,0 +1,48 @@
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    text-align: center;
+
+    background-color: mintcream;
+    /* background-color: lightblue; */
+    /* background-color: lightskyblue; */
+    /* background-color: dodgerblue; */
+    /* background-color: cornflowerblue; */
+}
+
+.HeaderWrapper {
+    display: flex;
+    flex-direction: column;
+    top: 0;
+    width: 100%;
+    height: auto;
+}
+
+.HeaderMessage {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    width: 100%;
+    background-color: #CC4444;
+}
+
+.HeaderNavigation {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    flex-wrap: wrap;
+
+    width: 100%;
+    background-color: #6495ED;
+}
+
+.HeaderNavigation > a {
+    margin: 10px;
+    padding: 5px;
+    color: inherit;
+    text-decoration: none;
+    background-color: #74A5FD;
+}
