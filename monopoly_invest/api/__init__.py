@@ -1,3 +1,4 @@
+from __future__ import annotations
 from flask import Blueprint
 
 from monopoly_invest.api.currency import currency

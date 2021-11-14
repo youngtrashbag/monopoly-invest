@@ -1,3 +1,4 @@
+from __future__ import annotations
 from flask import Blueprint, request, jsonify, abort
 from marshmallow import ValidationError
 
@@ -24,3 +25,20 @@ def new_player():
         return jsonify(new_p), 201
     except ValidationError as e:
         return jsonify(e), 400
+
+
+@player.route('/<name>', methods=['GET'])
+def get_currency(name):
+    if c := player_list.get(name):
+        return jsonify(c), 200
+    else:
+        return abort(404)
+
+
+@player.route('/<name>/fortune', methods=['GET'])
+def get_fortune(name):
+    if c := player_list.get(name):
+        fortune = c.get_current_fortune()
+        return jsonify({fortune: fortune}), 200
+    else:
+        return abort(404)

@@ -1,3 +1,4 @@
+from __future__ import annotations
 from flask import Blueprint, request, jsonify, abort
 from marshmallow import ValidationError
 
